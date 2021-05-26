@@ -1,0 +1,19 @@
+extends baseEmail
+
+block content
+    p #{data.isNegative ? '🔴' : '🟢'} Feedback: User possibily #{data.isNegative ? 'not ' : ''}happy,
+    p Received feedback from #{firstName} #{lastName}
+    
+    p
+        i "#{data.feedback}"
+
+    br
+
+    p Check Admin panel for more details
+
+    br
+    br
+    p.sign Thank You
+    p.sign Admin Email Notifications
+    p.sign
+        b Football App

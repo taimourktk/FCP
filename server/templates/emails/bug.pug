@@ -1,0 +1,19 @@
+extends baseEmail
+
+block content
+    p Alert: Bug Report,
+    p A bug is reported
+    #{console.log(data.message)}
+    p
+        i "#{data.message}"
+
+    br 
+
+    p Check Admin panel for more details
+
+    br
+    br
+    p.sign Thank You
+    p.sign Admin Email Notifications
+    p.sign
+        b Football App

@@ -1,0 +1,16 @@
+extends baseEmail
+
+block content
+    p #{firstName} #{lastName},
+    p Please click the link below to confirm registration
+
+    a(href=`${url}`, target='_blank') !{url}
+
+    
+    p Please do not reply to this message, it was sent from a notification only address that cannot accept incoming emails.
+    br
+    br
+    p.sign Thank You
+    p.sign Customer Service
+    p.sign
+        b Football App

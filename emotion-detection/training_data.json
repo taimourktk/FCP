@@ -1,0 +1,11 @@
+[
+    {"content": "app is slow", "isNegative": true},
+    {"content": "online payments not working fine", "isNegative": true},
+    {"content": "problem in online payment", "isNegative": true},
+    {"content": "online payment fails", "isNegative": true},
+    {"content": "unable to pay for ground booking", "isNegative": true},
+    {"content": "live matches is a very good feature", "isNegative": false},
+    {"content": "i like the live match updates feature", "isNegative": false},
+    {"content": "realtime match scores is good feature", "isNegative": false},
+    {"content": "app crashes again and again", "isNegative": true}
+]
