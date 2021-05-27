@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ScrollView, View, Text } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import styles from "./ExtraMenu.Style";
+import {set} from '../../utils/storage'
 
 import Feedback from "../Feedback/Feedback.Component";
 import Exercies from "../Exercise/Exercise.Component";
@@ -13,7 +14,7 @@ import Tracker from "../Tracker/Tracker.Component";
 
 import { TouchableOpacity } from "react-native";
 
-export default function ExtraMenu() {
+export default function ExtraMenu(props) {
   const [Component, setSelectedComponent] = useState(null);
   const menu = [
     { name: "Grounds", icon: "globe", component: "grounds" },
@@ -23,7 +24,7 @@ export default function ExtraMenu() {
     { name: "Feedback", icon: "bullhorn", component: "feedback" },
     { name: "Report Bug", icon: "bug", component: "bug" },
     { name: "Step Tracker", icon: "bicycle", component: "tracker" },
-    { name: "Log Out", icon: "sign-out", onClick: null },
+    { name: "Log Out", icon: "sign-out", onClick: () => set('token', null) },
   ];
 
   if (Component === null)
@@ -34,7 +35,15 @@ export default function ExtraMenu() {
           return (
             <View style={styles.menuContainer}>
               <TouchableOpacity
-                onPress={() => setSelectedComponent(menuItem.component)}
+                onPress={() => {
+                  if (menuItem.component) {
+                    setSelectedComponent(menuItem.component)
+                  }
+                  else {
+                    menuItem.onClick();
+                    props.reload();
+                  }
+                }}
               >
                 <Icon name={menuItem.icon} size={64} style={{ color: "#333" }} />
                 <Text style={styles.menuItemName}>{menuItem.name}</Text>

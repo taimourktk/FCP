@@ -75,7 +75,7 @@ function MyTabs(props) {
                 <Tab.Screen name="Tournament" component={Tournament} />
                 <Tab.Screen name="Teams" component={Teams} />
                 <Tab.Screen name="Profile" component={MeWithReload} />
-                <Tab.Screen name="More" component={ExtraMenu} />
+                <Tab.Screen name="More" component={() => <ExtraMenu reload={props.reload} />} />
             </Tab.Navigator>
         </NavigationContainer>
     </SafeAreaProvider>

@@ -32,6 +32,7 @@ const Tournament = function (props) {
     });
 
     const addTeam = async () => {
+        console.log("Add team")
         let res = await request({
             route: 'tournaments/' + tournaments[viewId]._id,
             type: 'PUT',
@@ -64,6 +65,7 @@ const Tournament = function (props) {
     }
 
     if (payment) {
+        console.log("Testtt")
         return (
             <Payment 
                 onSuccess={addTeam}
@@ -140,6 +142,7 @@ const Tournament = function (props) {
                                     marginTop: 20
                                 }}
                                 onPress={() => {
+                                    console.log("Helllo")
                                     payOnline ? setPayment(true) : addTeam();
                                 }}
                             />

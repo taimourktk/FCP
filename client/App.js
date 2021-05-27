@@ -19,6 +19,7 @@ import styles from './App.style'
 
 import Login from './components/Login/Login.Component'
 import SignUp from './components/SignUp/SignUp.Component'
+import ForgotPassword from './components/ForgotPassword/ForgotPassword.Component'
 import Home from './components/Home/Home.Component'
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import {get} from './utils/storage';
@@ -49,7 +50,9 @@ const App = () => {
         loggedIn ?
         <Home reload={() => setLoggedIn(false)} />:
         screen === 'login' ?
-        <Login reload={() => setLoggedIn(true)} setScreen={setScreen}/>
+        <Login reload={() => setLoggedIn(true)} setScreen={setScreen}/> :
+        screen === 'forgotPassword' ?
+        <ForgotPassword setScreen={setScreen} />
         : <SignUp reload={() => setLoggedIn(true)} setScreen={setScreen}/>
       }
       </View>

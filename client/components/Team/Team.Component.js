@@ -14,11 +14,14 @@ import Detail from './Team.Detail';
 import Header from '../Basic/Header/Header.Component';
 
 import MatchRequestForm from '../Matches/Match.Request';
+import { TextInput } from 'react-native';
 
 const Teams = () => {
 
     const [selectedIndex, _setSelectedIndex] = React.useState(0);
+    const [allTeams, setAllTeams] = React.useState([]);
     const [teams, setTeams] = React.useState([]);
+    const [searchFilter, setSearchFilter] = React.useState('');
     const [teamsToView, _setTeamsToView] = React.useState([]);
     const [toRequestTeam, setToRequestTeamId] = React.useState(null);
     const [users, setUsers] = React.useState([]);
@@ -50,6 +53,7 @@ const Teams = () => {
     }
 
     const setTeamsToView = (teams, index=selectedIndex, dontSet) => {
+        console.log("Length", teams.length);
         let _teams = teams.filter(team => {
             if (index === 0) {
                 return true
@@ -79,6 +83,7 @@ const Teams = () => {
         });
         if (teams.data) {
             setTeams(teams.data);
+            setAllTeams([... teams.data]);
             setTeamsToView(teams.data);
         }
     }
@@ -135,6 +140,26 @@ const Teams = () => {
             <Buttons
                 selectedIndex={selectedIndex}
                 setSelectedIndex={setSelectedIndex}
+            />
+            <TextInput 
+                style={{
+                    width: '100%',
+                    height: 35,
+                    borderWidth: 1,
+                    borderColor: '#aaaaaa',
+                    padding: 5,
+                    borderRadius: 3,
+                    display: selectedIndex === 3 ? 'none' : 'flex'
+                }}
+                placeholder="Search Teams"
+                onChangeText={async (text) => {
+                    let _teams = allTeams.filter(team => {
+                        let r = team.name.toLowerCase().indexOf(text.toLowerCase()) >= 0
+                        return r;
+                    });
+                    await setTeams([... _teams]);
+                    await setTeamsToView(_teams, selectedIndex);
+                }}
             />
             <Overlay
                 isVisible={toRequestTeam !== null}

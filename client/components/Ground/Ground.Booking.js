@@ -133,11 +133,12 @@ const Booking = (props) => {
                     style={{
                         display: calendarDisplay,
                         justifyContent: 'center',
-                        backgroundColor: 'white'
-                    }}
+                        backgroundColor: 'white', 
+                        zindex: 999                    }}
                 >
                     <Calendar 
                         onDayPress={(day) => {
+                            console.log("Day pressed")
                             setDate(day.dateString);
                             setSelected([]);
                             setCalenderDisplay('none');

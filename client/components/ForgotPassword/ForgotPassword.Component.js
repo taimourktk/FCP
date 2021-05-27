@@ -10,43 +10,37 @@ import { Button } from 'react-native-elements';
 import Input from '../Basic/Input/Input.component';
 import CoverPhoto from '../../res/login-cover.png';
 import commonStyles from '../../common/styles';
-import styles from './Login.style'
+import styles from './ForgotPassword.style'
 import request from '../../utils/request'
 import {set, get} from '../../utils/storage'
 import user from '../../utils/user'
 import Error from '../Error/Error.Component'
 
-const Login = (props) => {
+const ForgotPassword = (props) => {
 
     const [username, setUsername] = React.useState('');
-    const [password, setPassword] = React.useState('');
     const [loading, setLoading] = React.useState(false);
     const [error, setError] = React.useState('');
 
-    const login = async () => {
+    const sendLink = async () => {
         try {
             setLoading(true);
             let res = await request({
-                route: 'users/login',
+                route: 'users/forgot-password',
                 type: 'POST',
                 body: {
                     email: username,
-                    password
                 }
             });
             
             if (res.status === 'success') {
-                res.data.token = res.token;
-                user.setData(res.data);
-                set("user", res.data);
-                set("token", res.token);
-                props.reload();
+                alert('Reset link sent')
+                props.setScreen('login')
             }
             else {
                 setError(res.message ? res.message: 'Unknown error occurred');
             }
 
-            console.log(res);
             setLoading(false);
         }
         catch (err) {
@@ -73,24 +67,19 @@ const Login = (props) => {
             message={error}
         />
         <Input 
-            placeholder="Username"
+            placeholder="Email"
             onChangeText={(val) => setUsername(val)}
         />
-        <Input 
-            placeholder="Password"
-            onChangeText={(val) => setPassword(val)}
-            secureTextEntry={true}
-        />
         <Button
-          title="Sign In"
-          onPress={login}
+          title="Send Link"
+          onPress={sendLink}
           style={{
               marginTop: 10
           }}
           loading={loading}
         />
         <TouchableOpacity
-            onPress={() => props.setScreen('signup')}
+            onPress={() => props.setScreen('login')}
         >
         <View
             style={styles.noteContainer}
@@ -98,23 +87,7 @@ const Login = (props) => {
             <Text
                 style={commonStyles.note}
             >
-              Create a new account
-            </Text>
-        </View>
-        </TouchableOpacity>
-        <TouchableOpacity
-            onPress={() => props.setScreen('forgotPassword')}
-        >
-        <View
-            style={styles.noteContainer}
-        >
-            <Text
-                style={{
-                    ... commonStyles.note,
-                    alignSelf: 'flex-end'
-                }}
-            >
-              Forgot Password
+              Login
             </Text>
         </View>
         </TouchableOpacity>
@@ -122,4 +95,4 @@ const Login = (props) => {
     )
 }
 
-export default Login;
+export default ForgotPassword;

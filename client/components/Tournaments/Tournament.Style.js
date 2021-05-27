@@ -17,7 +17,7 @@ const styles = {
         width: Dimensions.get('window').width * 0.8,
         padding: 5,
         backgroundColor: 'white',
-        height: Dimensions.get('window').height * 0.3,
+        height: Dimensions.get('window').height * 0.5,
     },
     overlayText: {
         marginTop: 5,
