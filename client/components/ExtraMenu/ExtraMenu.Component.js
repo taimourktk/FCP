@@ -45,7 +45,7 @@ export default function ExtraMenu(props) {
                   }
                 }}
               >
-                <Icon name={menuItem.icon} size={64} style={{ color: "#333" }} />
+                <Icon name={menuItem.icon} size={50} style={{ color: "#333"}} />
                 <Text style={styles.menuItemName}>{menuItem.name}</Text>
               </TouchableOpacity>
             </View>

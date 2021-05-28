@@ -1,6 +1,6 @@
 export const apis = {
    // 'dev': 'http://localhost:5001/',
-   'dev': 'https://obscure-ocean-64391.herokuapp.com/',
+  'dev': 'https://obscure-ocean-64391.herokuapp.com/',
     'prod': 'http://picsfies.com:5000/'
 }
 

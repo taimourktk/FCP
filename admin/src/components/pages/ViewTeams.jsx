@@ -17,7 +17,7 @@ export default function (props) {
     const deletePage = async (e, data) => {
         e.target.disabled = true;
         let res = await request({
-            route: 'news/',
+            route: 'teams/',
             params: data._id,
             method: 'DELETE',
             credentials: 'include'
@@ -72,7 +72,7 @@ export default function (props) {
                 <>
                 <Viewer 
                     data = {data.data.slice(startIndex, pageSize + startIndex)}
-                    hidden = {['_id', 'image', 'rejectedMatchesRequest', 'matchesRequest']}
+                    hidden = {[ 'image', 'rejectedMatchesRequest', 'matchesRequest']}
                     actions = {[
                         {onClick: deletePage, value: 'Delete', className : 'btn btn-danger margin-5', break: true}
                     ]}

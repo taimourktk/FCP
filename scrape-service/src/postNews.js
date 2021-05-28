@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 
 const postNews = async (image, highlight, body, url) => {
     try {
-        await fetch("http://localhost:5001/news", {
+        await fetch("https://obscure-ocean-64391.herokuapp.com/news", {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',

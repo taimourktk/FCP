@@ -13,7 +13,6 @@
     "@kilohealth/rn-fitness-tracker": "^1.4.7",
     "@react-native-async-storage/async-storage": "^1.14.1",
     "@react-navigation/bottom-tabs": "^5.11.8",
-    "@react-navigation/drawer": "^5.12.5",
     "@react-navigation/material-bottom-tabs": "^5.3.14",
     "@react-navigation/native": "^5.9.4",
     "add": "^2.0.6",

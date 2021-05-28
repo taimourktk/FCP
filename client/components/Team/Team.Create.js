@@ -55,7 +55,7 @@ const CreateTeam = (props) => {
                 onChangeText={(val) => setName(val)}
             />
             <Input 
-                placeholder='Unique Team Name'
+                placeholder='City '
                 onChangeText={(val) => setUniqueName(val)}
             />
 

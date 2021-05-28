@@ -95,7 +95,7 @@ const Me = (props) => {
                 <Text style={styles.menuItemValue}>{user.email}</Text>
             </View>
             <View style={styles.menuContainer}>
-                <Text style={styles.menuItemName}>Role</Text>
+                <Text style={styles.menuItemName}>Position</Text>
                 <Text style={styles.menuItemValue}>{user.role}</Text>
             </View>
             <View style={styles.menuContainer}>
@@ -111,8 +111,11 @@ const Me = (props) => {
                 <Text style={styles.menuItemValue}>{user.joinDate}</Text>
             </View>
         </ScrollView>
+        
     )
+    
 
 }
+
 
 export default Me;

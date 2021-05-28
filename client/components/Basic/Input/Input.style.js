@@ -7,9 +7,10 @@ const styles = {
         borderRadius: 4,
         backgroundColor: 'white',
         padding: 10,
-        marginTop: 2.5,
+        marginTop: 5,
         marginBottom: 5,
         fontSize: 18,
+        borderRadius: 10
     }
 }
 

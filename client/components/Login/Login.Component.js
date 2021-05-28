@@ -62,11 +62,12 @@ const Login = (props) => {
         <Image 
             source={CoverPhoto}
             style={{
-                width: Dimensions.get('window').width - 120,
+                width: Dimensions.get('window').width - 200,
+                height: Dimensions.get('window').height-400,
                 alignSelf: 'center',
                 resizeMode: 'contain',
-                marginBottom: 40,
-                marginTop: 30,
+                marginBottom: 5,
+                marginTop: 5,
             }}
         />
         <Error 

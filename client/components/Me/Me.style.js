@@ -6,7 +6,8 @@ const styles = {
         width: '100%',
         minHeight: '100%',
         backgroundColor: 'white',
-        marginBottom: 50
+        marginBottom: 50, 
+        flex: 1,
     },
     imageContainer: {
         marginLeft: 20,
@@ -37,20 +38,20 @@ const styles = {
     menuContainer: {
         width: '100%',
         backgroundColor: '#33333333',
-        height: 80,
+        height: 70,
         margin: 5,
         padding: 10,
         borderRadius: 5,
     },
     menuItemName: {
         fontWeight: 'bold',
-        fontSize: 14,
+        fontSize: 16,
         marginTop: 5,
         color: '#333'
     },
     menuItemValue: {
         fontWeight: 'bold',
-        fontSize: 22,
+        fontSize: 15,
         marginTop: 5,
         color: '#333'
     },
