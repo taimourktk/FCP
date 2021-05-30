@@ -48,8 +48,6 @@ exports.updateMe = catchAsync(async (req, res, next) => {
 		'lastName',
 		'email',
 		'company',
-		'website',
-		'paypalId',
 		'phone',
 		'address1',
 		'address2',
@@ -57,7 +55,8 @@ exports.updateMe = catchAsync(async (req, res, next) => {
 		'state',
 		'city',
 		'zip',
-		'role'
+		'role',
+		'photo'
 	)
 
 	const updatedUser = await User.findByIdAndUpdate(

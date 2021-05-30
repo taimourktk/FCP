@@ -25,5 +25,6 @@ exports.save = catchAsync(async (req, res, next) => {
 });
 
 exports.get = catchAsync(async (req, res, next) => {
-    res.sendFile(path.resolve(`./images/${req.params.name}`));
+    //res.sendFile(path.resolve(`/images/${req.params.name}`));
+    res.sendFile(path.join(__dirname + "/../images/" + req.params.name));
 })

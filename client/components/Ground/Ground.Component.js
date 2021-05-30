@@ -16,7 +16,7 @@ const Ground = function (props) {
     const [data, setData] = React.useState([]);
     const [detailId, setDetailId] = React.useState(null);
     const [payOnline, setPayOnline] = React.useState(0);
-
+    const [amount, setAmount] = React.useState(0);
     React.useEffect(() => {
         request({
             route: 'ground'
@@ -26,7 +26,7 @@ const Ground = function (props) {
     }, []);
 
     if (payOnline) {
-        return <Payment />
+        return <Payment amount={amount} />
     }
 
     if (detailId !== null) {
@@ -39,9 +39,10 @@ const Ground = function (props) {
                 />
                 <Booking
                     id={data[detailId]?._id}
-                    rate={200}
+                    rate={data[detailId]?.rate}
                     availableHours={data[detailId]?.availableHours}
                     payOnline={(amount) => {setPayOnline(amount)}}
+                    setAmount = {setAmount}
                 />
             </ScrollView>
         )

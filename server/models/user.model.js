@@ -45,6 +45,10 @@ const userSchema = new mongoose.Schema(
 		passwordResetToken: String,
 		emailConfirmToken: String,
 		passwordResetExpires: Date,
+		photo: {
+			type: String,
+			default: ''
+		},
 		emailConfirmed: {
 			type: Boolean,
 			default: false,

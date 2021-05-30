@@ -8,7 +8,7 @@ module.exports = class Email {
 		this.firstName = user.firstName
 		this.lastName = user.lastName
 		this.url = url
-		this.from = `crowdtestingali@gmail.com`
+		this.from = `footballcompanionpk@gmail.com`
 		this.data = user
 	}
 
@@ -20,8 +20,8 @@ module.exports = class Email {
                 secure: false,
                 requireTLS: true,
                 auth: {
-                    user: 'crowdtestingali@gmail.com',
-                    pass: 'alin3211'         
+                    user: 'footballcompanionpk@gmail.com',
+                    pass: 'Finalproject11'         
                 }
             });
 		}
@@ -63,6 +63,13 @@ module.exports = class Email {
 
 	async sendConfirmation() {
 		await this.send('confirm', 'Confirm your email address')
+	}
+
+	async sendPasswordReset() {
+		await this.send(
+			'password',
+			'Your password reset token (valid for only 10 mins)'
+		)
 	}
 
 	async sendBugAlert() {

@@ -5,6 +5,7 @@ const router = express.Router();
 
 router.get('/', teamController.getAll);
 router.get('/:id', teamController.getOne);
+router.delete('/:id', teamController.delete)
 
 router.use(authController.protect);
 

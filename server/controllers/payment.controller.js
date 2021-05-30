@@ -21,10 +21,8 @@ exports.createTransaction = catchAsync(async function(req, res, next) {
 
     const { amount, source } = req.query;
 
-    console.log(">>", amount, source);
-
     const transaction = await sfpy.payments.create({
-        amount: 1000,
+        amount: Number(amount),
         currency: "PKR",
     }).then((response) => {
         return response.data
@@ -37,5 +35,5 @@ exports.createTransaction = catchAsync(async function(req, res, next) {
             redirectUrl: "https://example.com/payment-complete"
         })
     });
-    res.send(transaction);
+    res.send({ url: transaction });
 });

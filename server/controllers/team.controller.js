@@ -275,5 +275,7 @@ exports.acceptMatchRequest = catchAsync(async (req, res, next) => {
 });
 
 exports.rejectMatchRequest = catchAsync(async (req, res, next) => {
-    return res.send("HELLO WORLD")
+    return res.send({})
 })
+
+exports.delete = factory.deleteOne(Team);

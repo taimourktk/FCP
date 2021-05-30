@@ -35,7 +35,7 @@ if (process.env.NODE_ENV === 'development') {
 	//	'<PASSWORD>',
 	//	process.env.DATABASE_PASSWORD
 	//)
-	DB = 'mongodb+srv://football:12341234@cluster0.w3pxg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+	DB = 'mongodb+srv://football:test1234@cluster0.w3pxg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 }
 
 mongoose

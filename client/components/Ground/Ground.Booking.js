@@ -116,7 +116,7 @@ const Booking = (props) => {
                         onDayPress={(day) => {
                             console.log("Day pressed")
                             setDate(day.dateString);
-                            setSelected([]);
+                            _setSelected([]);
                             setCalenderDisplay('none');
                         }}
                         
@@ -163,7 +163,7 @@ const Booking = (props) => {
                         onDayPress={(day) => {
                             console.log("Day pressed")
                             setDate(day.dateString);
-                            setSelected([]);
+                            _setSelected([]);
                             setCalenderDisplay('none');
                         }}
                         style={{
@@ -220,6 +220,7 @@ const Booking = (props) => {
                     onPress={() => setPayOnline(!payOnline)}
                 />
             </View>
+            <Text>{console.log(selected)}</Text>
             <Button 
                 title={`Book - PKR ${selected.length * props.rate}`}
                 disabled={loading || selected.length === 0}
@@ -227,6 +228,7 @@ const Booking = (props) => {
                     payOnline ?
                     () => {
                         setPayOnline(true);
+                        props.setAmount(selected.length * props.rate)
                         props.payOnline(10);
                     }: book
                 }

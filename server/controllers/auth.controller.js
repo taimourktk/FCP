@@ -144,3 +144,72 @@ exports.confirmEmail = catchAsync(async (req, res, next) => {
 })
 
 exports.protect = createProtectController(User, 'user');
+
+exports.forgotPassword = catchAsync(async (req, res, next) => {
+	const user = await User.findOne({ email: req.body.email })
+	if (!user) {
+		return next(
+			new AppError('There is no user with that email address', 404)
+		)
+	}
+
+	const resetToken = user.createPasswordResetToken.apply(user)
+	await user.save({
+		validateBeforeSave: false,
+	})
+
+	try {
+
+		const apiURL = process.env.NODE_ENV === "development" ? 
+		"http://localhost:5001" :
+		"http://obscure-ocean-64391.herokuapp.com"
+
+		const resetURL = `${apiURL}/users/reset-password-page?token=${resetToken}`
+		console.log(resetURL)
+		await new Email(user, resetURL).sendPasswordReset()
+
+		res.status(200).json({
+			status: 'success',
+			message: 'Token sent to email!',
+		})
+	} catch (err) {
+		user.passwordResetToken = undefined
+		user.passwordResetExpires = undefined
+		return next(
+			new AppError(
+				'There was an error sending the email. Try again ',
+				500
+			)
+		)
+	}
+});
+
+exports.resetForgottenPassword = catchAsync(async (req, res, next) => {
+	const { password, token } = req.query
+	console.log(">>", password, token);
+	// get user based on token
+	const hashedToken = crypto.createHash('sha256').update(token).digest('hex')
+	console.log(hashedToken)
+	const user = await User.findOne({
+		passwordResetToken: hashedToken,
+		//passwordResetExpires: { $gt: Date.now() },
+	})
+
+	console.log(user)
+
+	// if token has not expired, and there is user, set the new password
+	if (!user) {
+		return next(new AppError('Token is invalid or has expired', 400))
+	}
+
+	user.password = password
+	user.passwordResetToken = undefined
+	user.passwordResetExpires = undefined
+
+	await user.save()
+
+	res.status(200).json({
+		status: 'success',
+		message: 'Your password reset was successful',
+	})
+})
