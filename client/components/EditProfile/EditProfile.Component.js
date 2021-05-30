@@ -155,7 +155,7 @@ const Login = (props) => {
             value={city}
         />
         <Input
-            placeholder="Role"
+            placeholder="Position"
             onChangeText={(val) => setRole(val)}
             value={role}
         />

@@ -105,7 +105,30 @@ const Booking = (props) => {
             </>
         );
     }
-
+        if (calendarDisplay!="none"){
+        
+            return (
+                <View
+                   
+                >
+                    <Text>Choose day for booking</Text>
+                <Calendar 
+                        onDayPress={(day) => {
+                            console.log("Day pressed")
+                            setDate(day.dateString);
+                            setSelected([]);
+                            setCalenderDisplay('none');
+                        }}
+                        
+                        theme={{
+                            textDayFontSize: 18,
+                            textMonthFontSize: 18,
+                            textDayHeaderFontSize: 18
+                        }}
+                    />
+                    </View>
+            )
+        }
     return (
         
         <View style={styles.bookingContainer}>

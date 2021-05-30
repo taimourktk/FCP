@@ -14,7 +14,8 @@ import styles from './Login.style'
 import request from '../../utils/request'
 import {set, get} from '../../utils/storage'
 import user from '../../utils/user'
-import Error from '../Error/Error.Component'
+import Error from '../Error/Error.Component';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Login = (props) => {
 
@@ -117,8 +118,19 @@ const Login = (props) => {
             >
               Forgot Password
             </Text>
+            
         </View>
         </TouchableOpacity>
+          <Icon.Button
+          name="facebook"
+          backgroundColor="#3b5998"
+          style={{
+              padding: 10
+            }}
+          onPress={()=>console.log("login with facebook")}
+            >
+             Login with Facebook
+          </Icon.Button>
         </>
     )
 }
