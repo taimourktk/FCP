@@ -8,7 +8,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { TouchableOpacity } from 'react-native';
 Icon.loadFont();
 
-const cover = "https://lh3.googleusercontent.com/proxy/QHFBsqWhazrUd0TayCr4aePhVx9FSNfMCAfZrHvSFM-DClseUQJaDR_1H2QgeoS0xmbvaSO1o4cdzfQcJIOFUSs27FjgMdlT8yjt"
+const cover = "https://ibb.co/cx9qjVp"
 
 const Me = (props) => {
 
