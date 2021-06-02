@@ -3,6 +3,7 @@ import {Card} from 'react-native-elements';
 import {Image, Text, View} from 'react-native';
 import styles, { halfWidth } from './Matches.Style';
 import TeamLogo from '../../res/team-logo.png';
+import moment from 'moment'
 
 const UpcomingMatch = (props) => {
 
@@ -41,8 +42,8 @@ const UpcomingMatch = (props) => {
                 }}
             />
             <View style={styles.matchTeamsContainer}>
-                <Text style={styles.matchLocation}>Location, City</Text>
-                <Text style={styles.matchDate}>Feb 20</Text>
+            <Text style={styles.matchLocation}>{props.location}</Text>
+                <Text style={styles.matchDate}>{moment( new Date(props.date)).format('MMM DD')}</Text>
             </View>
         </Card>
     )

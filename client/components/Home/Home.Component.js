@@ -6,7 +6,6 @@ import {
     View
 } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { Header } from 'react-native-elements';
@@ -31,7 +30,6 @@ import EditProfile from '../EditProfile/EditProfile.Component'
 Icon.loadFont();
 
 const Tab = createBottomTabNavigator();
-const Drawer = createDrawerNavigator();
 
 function MyTabs(props) {
     const insets = useSafeAreaInsets();
@@ -44,9 +42,10 @@ function MyTabs(props) {
       <View
         style={{
             height: Dimensions.get('window').height - insets.top - insets.bottom,
+            backgroundColor:"black"
         }}
       >
-      <SafeAreaProvider>
+     
         <NavigationContainer>
             <Tab.Navigator
                 screenOptions={({ route }) => ({
@@ -78,7 +77,7 @@ function MyTabs(props) {
                 <Tab.Screen name="More" component={() => <ExtraMenu reload={props.reload} />} />
             </Tab.Navigator>
         </NavigationContainer>
-    </SafeAreaProvider>
+   
     </View>
   );
 }

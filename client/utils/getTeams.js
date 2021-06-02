@@ -22,5 +22,5 @@ export const getTeams = ({mine}) => {
 
 export const getTeamById = (id) => {
     let team = find(teams, {_id: id});
-    return team;
+    return team || {};
 }

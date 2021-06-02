@@ -87,7 +87,8 @@ const Login = (props) => {
           title="Sign In"
           onPress={login}
           style={{
-              marginTop: 10
+              marginTop: 10,
+              color:"#414042"
           }}
           loading={loading}
         />
@@ -121,16 +122,6 @@ const Login = (props) => {
             
         </View>
         </TouchableOpacity>
-          <Icon.Button
-          name="facebook"
-          backgroundColor="#3b5998"
-          style={{
-              padding: 10
-            }}
-          onPress={()=>console.log("login with facebook")}
-            >
-             Login with Facebook
-          </Icon.Button>
         </>
     )
 }

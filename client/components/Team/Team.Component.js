@@ -15,6 +15,7 @@ import Header from '../Basic/Header/Header.Component';
 
 import MatchRequestForm from '../Matches/Match.Request';
 import { TextInput } from 'react-native';
+import { getTeamById } from '../../utils/getTeams';
 
 const Teams = () => {
 
@@ -191,7 +192,7 @@ const Teams = () => {
                         else {
                             let matchRequests, memberRequests;
                             matchRequests = team.matchesRequest.map(req => {
-                                let requestee = getTeam(req.from);
+                                let requestee = getTeamById(req.from);
 
                                 if (!requestee)
                                     return null;

@@ -133,6 +133,7 @@ const Matches = (props) => {
                         key={match._id}
                         onClick={() => {}}
                     />
+                    
 
                 }
                 <MatchDetail
@@ -172,6 +173,8 @@ const Matches = (props) => {
                                         teamB={getTeamById(match.team2)}
                                         summary={match.summary}
                                         key={match._id}
+                                        location={match.venue}
+                                        date={match.time}
                                         onClick={() => setDetailId(index)}
                                     />
                                 )
