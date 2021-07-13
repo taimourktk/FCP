@@ -10,7 +10,8 @@ let teams = [];
 })();
 
 export const getTeams = (query) => {
-
+    console.log("Teams", teams);
+    return teams;
 }
 
 export const getTeamById = (id) => {

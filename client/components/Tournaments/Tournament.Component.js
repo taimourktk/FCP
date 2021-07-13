@@ -111,7 +111,7 @@ const Tournament = function (props) {
                                 <TouchableOpacity
                                     onPress={() => setTeamSelectorView(true)}
                                 >
-                                    <Text style={{ fontSize: 18 }}>
+                                    <Text style={{ fontSize: 18, fontWeight: 'bold' }}>
                                         {team ? "Team: " + teamName : 'Choose Team'}
                                     </Text>
                                 </TouchableOpacity>
@@ -141,6 +141,11 @@ const Tournament = function (props) {
                                 style={{
                                     marginTop: 20
                                 }}
+                                buttonStyle={{
+                      backgroundColor: 'black',
+                      borderRadius: 5,
+                      marginTop:10
+                  }}
                                 onPress={() => {
                                     console.log("Helllo")
                                     payOnline ? setPayment(true) : addTeam();

@@ -120,7 +120,7 @@ const Login = (props) => {
     }
 
     return (
-        <ScrollView style={{ backgroundColor: 'white' }}>
+        <ScrollView style={{ backgroundColor: 'white' , padding: 10}}>
         <Header 
             onIconClick={props.back}
             iconName="chevron-left"
@@ -172,8 +172,9 @@ const Login = (props) => {
             ):
             <TouchableOpacity
                 onPress={selectFile}
+                style={{justifyContent: 'center', alignItems: 'center', marginTop:10 }}
             >
-                <Text>Select File</Text>
+                <Text>Update Profile Picture</Text>
             </TouchableOpacity>
         }
         <Button
@@ -181,6 +182,13 @@ const Login = (props) => {
           onPress={signup}
           style={{
               marginTop: 10
+          }}
+          buttonStyle={{
+            marginLeft: (Dimensions.get('window').width - 300)/2,
+              width:300,
+              backgroundColor: 'black',
+              borderRadius: 5,
+              marginTop:20
           }}
           loading={loading}
         />

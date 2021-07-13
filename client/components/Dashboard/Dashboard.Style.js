@@ -5,6 +5,7 @@ const styles = {
         width: '100%',
         height: '100%',
         backgroundColor: 'white',
+        padding: 10,
     },
     createButton: {
         display: 'flex',

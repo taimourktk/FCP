@@ -46,25 +46,32 @@ function MyTabs(props) {
         }}
       >
      
-        <NavigationContainer>
+        <NavigationContainer >
             <Tab.Navigator
                 screenOptions={({ route }) => ({
                     tabBarIcon: ({focused, color, size}) => {
                         let iconName;
                         if (route.name === 'Home')
-                            iconName = 'home'
+                            iconName = 'home',
+                            color= 'black'
                         else if (route.name === 'Matches')
-                            iconName = 'futbol-o'
+                            iconName = 'futbol-o',
+                            color= 'black'
                         else if (route.name === 'News')
-                            iconName = 'newspaper-o'
+                            iconName = 'newspaper-o',
+                            color= 'black'
                         else if (route.name === 'Teams')
-                            iconName = 'users'
+                            iconName = 'users',
+                            color= 'black'
                         else if (route.name === 'Profile')
-                            iconName = 'user'
+                            iconName = 'user', 
+                            color= 'black'
                         else if (route.name === 'Tournament')
-                            iconName = 'trophy'
+                            iconName = 'trophy',
+                            color= 'black'
                         else if (route.name === 'More')
-                            iconName = 'bars'
+                            iconName = 'bars',
+                            color= 'black'
                         return <Icon name={iconName} size={size} color={color} />
                     }
                 })}

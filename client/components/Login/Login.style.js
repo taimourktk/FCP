@@ -4,7 +4,8 @@ const style={
     noteContainer: {
         marginTop: 10,
         display: 'flex',
-        flexDirection: 'row'
+        flexDirection: 'row',
+        
     }
 }
 

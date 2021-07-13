@@ -52,15 +52,15 @@ const ForgotPassword = (props) => {
     }
 
     return (
-        <>
+        <View style={{padding: 10}}>
         <Image 
             source={CoverPhoto}
             style={{
-                width: Dimensions.get('window').width - 120,
+                width: Dimensions.get('window').width - 200,
                 alignSelf: 'center',
                 resizeMode: 'contain',
                 marginBottom: 40,
-                marginTop: 30,
+                marginTop: 5,
             }}
         />
         <Error 
@@ -71,27 +71,34 @@ const ForgotPassword = (props) => {
             onChangeText={(val) => setUsername(val)}
         />
         <Button
-          title="Send Link"
+          title="Reset Password"
           onPress={sendLink}
           style={{
               marginTop: 10
           }}
           loading={loading}
+          buttonStyle={{
+            marginLeft: (Dimensions.get('window').width - 300)/2,
+              width:300,
+              backgroundColor: 'black',
+              borderRadius: 5,
+              marginTop:10
+          }}
         />
         <TouchableOpacity
             onPress={() => props.setScreen('login')}
         >
         <View
-            style={styles.noteContainer}
+            style={{ ... styles.noteContainer, justifyContent: 'center', alignItems: 'center' }}
         >
             <Text
                 style={commonStyles.note}
             >
-              Login
+              Login into account
             </Text>
         </View>
         </TouchableOpacity>
-        </>
+        </View>
     )
 }
 

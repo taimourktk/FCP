@@ -1,6 +1,9 @@
 import React from 'react'
 import Field from '../unit/Field'
 import { request } from '../../utils/request'
+import { getTeamById, getTeams } from '../../utils/getTeams'
+import Select from 'react-select';
+import { getMatches } from '../../utils/getMatches';
 
 
 export default function (props) {
@@ -65,11 +68,23 @@ export default function (props) {
 
             <div style={{width: '50%'}}>
                 <div>
-                    <input 
-                        type="text"
-                        className="form-control"
-                        placeholder="Match Id"
-                        onChange={(e) => setId(e.target.value)}
+                    <Select 
+                        options={(() => {
+                            let matches = getMatches();
+                            if(Array.isArray(matches)) {
+                                return matches.map(match => {
+                                    const team1 = getTeamById(match.team1);
+                                    const team2 = getTeamById(match.team2);
+                                    return ({ label: team1?.name + " vs " + team2?.name, value: match._id })
+                                })
+                            }
+                            else {
+                                return [];
+                            }
+                        })()}
+                        onChange={({ value }) => {
+                            setId(value);
+                        }}
                     />
                 </div>
                 <h4 style = {{margin: 0, marginBottom: 10}}>Add Summary</h4>
@@ -81,12 +96,31 @@ export default function (props) {
                         <option>Break</option>
                     </select>
                 </div>
+                {/*
                 <div style = {{display: 'inline-block', width: 'calc(50% - 20px)', marginRight: 20}}>
                     <p>Team</p>
                     <input 
                         className="form-control"
                         placeholder="Team Id"
                         onChange={(e) => setTeam(e.target.value)}
+                    />
+                </div>
+                */}
+                <div style = {{display: 'inline-block', width: 'calc(50% - 20px)', marginRight: 20}}>
+                    <p>Team</p>
+                    <Select 
+                        options={(() => {
+                            let teams = getTeams();
+                            if(Array.isArray(teams)) {
+                                return teams.map(team => ({ label: team.name, value: team._id }))
+                            }
+                            else {
+                                return [];
+                            }
+                        })()}
+                        onChange={({ value }) => {
+                            setTeam(value);
+                        }}
                     />
                 </div>
                 <br />

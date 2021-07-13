@@ -12,6 +12,7 @@ const styles = {
         color: '#333',
         marginBottom: 20,
         alignSelf: 'center',
+        fontWeight: 'bold'
     },
     overlay: {
         width: Dimensions.get('window').width * 0.8,

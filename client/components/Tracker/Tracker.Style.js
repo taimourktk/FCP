@@ -8,6 +8,7 @@ export default StyleSheet.create({
         margin: 5,
         padding: 10,
         borderRadius: 5,
+        marginLeft:20
     },
     container: {
         backgroundColor: 'white',
@@ -16,6 +17,7 @@ export default StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         flexWrap: 'wrap',
+
     },
     menuItemName: {
         fontWeight: 'bold',

@@ -1,14 +1,14 @@
 import React from 'react';
 import {Image, Button} from 'react-native-elements'
-import {View, Text, ScrollView} from 'react-native'
+import {View, Text, ScrollView, Dimensions} from 'react-native'
 import styles from './Me.style'
 import {set} from '../../utils/storage'
 import user from '../../utils/user'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { TouchableOpacity } from 'react-native';
+import cover from "../../res/cover.jpg"
 Icon.loadFont();
 
-const cover = "https://ibb.co/cx9qjVp"
 
 const Me = (props) => {
 
@@ -43,7 +43,7 @@ const Me = (props) => {
                         height: '100%',
                         overflow: 'hidden',
                     }}
-                    source={{ uri: cover }}
+                    source={ cover }
                 />
             </View>
             <View>
@@ -56,35 +56,11 @@ const Me = (props) => {
                     style={{ width: 150, height: 150, borderRadius: 100, flexDirection: 'row' }}
                 />
                 <Text
-                    style={{ ...styles.menuItemValue, alignSelf: 'flex-start', fontSize: 24, marginBottom: -35, marginLeft: 10 }}
+                    style={{ ...styles.menuItemValue, alignSelf: 'flex-start', fontSize: 24, marginBottom: 0, marginLeft: 10 }}
                 >
                     Profile
                 </Text>
-                <TouchableOpacity
-                    onPress={() => alert(1)}
-                    style={{
-                        alignSelf: 'flex-end',
-                        width: 20,
-                        marginTop: 5,
-                        marginBottom: -25,
-                        marginRight: 130
-                    }}
-                >
-                    <Icon name="refresh" size={16}></Icon>
-                </TouchableOpacity>
-                <Button 
-                    title='Log Out'
-                    onPress={() => {
-                        set('token', null);
-                        props.reload();
-                    }}
-                    style={{
-                        alignSelf: 'flex-end',
-                        width: 120,
-                        marginTop: 0,
-                        marginBottom: 20
-                    }}
-                />
+                
             </View>
             <View style={styles.menuContainer}>
                 <Text style={styles.menuItemName}>Name</Text>
@@ -110,6 +86,27 @@ const Me = (props) => {
                 <Text style={styles.menuItemName}>Joined On</Text>
                 <Text style={styles.menuItemValue}>{user.joinDate}</Text>
             </View>
+            <Button 
+                    title='Log Out'
+                    onPress={() => {
+                        set('token', null);
+                        props.reload();
+                    }}
+                    style={{
+                        alignSelf: 'flex-end',
+                        width: 120,
+                        marginTop: 0,
+                        marginBottom: 20
+                    }}
+                    buttonStyle={{
+                        marginLeft: (Dimensions.get('window').width - 300)/2,
+                          width:300,
+                          backgroundColor: 'black',
+                          borderRadius: 5,
+                          marginTop:10
+                      }}
+                    
+                />
         </ScrollView>
         
     )

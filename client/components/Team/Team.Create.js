@@ -70,6 +70,11 @@ const CreateTeam = (props) => {
                 titleStyle={{
                     fontWeight: '600'
                 }}
+                buttonStyle={{
+                      backgroundColor: 'black',
+                      borderRadius: 5,
+                      marginTop:10
+                  }}
             />
 
         </View>

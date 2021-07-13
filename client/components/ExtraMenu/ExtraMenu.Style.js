@@ -16,6 +16,9 @@ export default StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         flexWrap: 'wrap',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 30
     },
     menuItemName: {
         fontWeight: 'bold',

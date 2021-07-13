@@ -59,7 +59,7 @@ const Login = (props) => {
     }
 
     return (
-        <>
+        <View style={{padding: 10}}>
         <Image 
             source={CoverPhoto}
             style={{
@@ -67,8 +67,8 @@ const Login = (props) => {
                 height: Dimensions.get('window').height-400,
                 alignSelf: 'center',
                 resizeMode: 'contain',
-                marginBottom: 5,
-                marginTop: 5,
+                marginBottom: 0,
+                marginTop: 0,
             }}
         />
         <Error 
@@ -88,7 +88,16 @@ const Login = (props) => {
           onPress={login}
           style={{
               marginTop: 10,
-              color:"#414042"
+              width: 160,
+              color:"#414042",
+              backgroundColor:"black"
+          }}
+          buttonStyle={{
+            marginLeft: (Dimensions.get('window').width - 300)/2,
+              width:300,
+              backgroundColor: 'black',
+              borderRadius: 5,
+              marginTop:10
           }}
           loading={loading}
         />
@@ -96,7 +105,7 @@ const Login = (props) => {
             onPress={() => props.setScreen('signup')}
         >
         <View
-            style={styles.noteContainer}
+            style={{ ... styles.noteContainer, justifyContent: 'center', alignItems: 'center' }}
         >
             <Text
                 style={commonStyles.note}
@@ -109,12 +118,13 @@ const Login = (props) => {
             onPress={() => props.setScreen('forgotPassword')}
         >
         <View
-            style={styles.noteContainer}
+            style={{ ... styles.noteContainer, justifyContent: 'center', alignItems: 'center' }}
         >
             <Text
                 style={{
                     ... commonStyles.note,
-                    alignSelf: 'flex-end'
+                    alignSelf: 'flex-end',
+                    textAlign: 'center',
                 }}
             >
               Forgot Password
@@ -122,7 +132,7 @@ const Login = (props) => {
             
         </View>
         </TouchableOpacity>
-        </>
+        </View>
     )
 }
 

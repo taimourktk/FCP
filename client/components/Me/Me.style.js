@@ -8,6 +8,7 @@ const styles = {
         backgroundColor: 'white',
         marginBottom: 50, 
         flex: 1,
+        padding:10
     },
     imageContainer: {
         marginLeft: 20,

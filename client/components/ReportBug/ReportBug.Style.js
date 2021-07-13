@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions} from 'react-native';
 
 export default StyleSheet.create({
     inputText: {
@@ -13,8 +13,14 @@ export default StyleSheet.create({
         width: '100%',
         height: '100%',
         backgroundColor: 'white',
+        padding: 10
     },
     button: {
+        marginLeft: (Dimensions.get('window').width - 300)/2,
+        width:300,
         marginTop: 10,
+        backgroundColor: 'black',
+        borderRadius: 5,
+        marginTop:10
     }
 });

@@ -64,7 +64,7 @@ export default function Feedback (props) {
                 title="Submit"
                 loading={loading}
                 disabled={loading}
-                style={styles.button}
+                buttonStyle={styles.button}
                 onPress={submit}
             />
         <Toast ref={(ref) => Toast.setRef(ref)} />

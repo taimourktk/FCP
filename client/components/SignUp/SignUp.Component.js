@@ -64,15 +64,16 @@ const Login = (props) => {
     }
 
     return (
-        <>
+        <View style={{padding: 10}}>
         <Image 
             source={CoverPhoto}
             style={{
-                width: Dimensions.get('window').width - 120,
+                width: Dimensions.get('window').width - 200,
+                eight: Dimensions.get('window').height-400,
                 alignSelf: 'center',
                 resizeMode: 'contain',
-                marginBottom: 40,
-                marginTop: 30,
+                marginBottom: 5,
+                marginTop: 5,
             }}
         />
         <Error 
@@ -101,13 +102,20 @@ const Login = (props) => {
           style={{
               marginTop: 10
           }}
+          buttonStyle={{
+            marginLeft: (Dimensions.get('window').width - 300)/2,
+              width:300,
+              backgroundColor: 'black',
+              borderRadius: 5,
+              marginTop:10
+          }}
           loading={loading}
         />
         <TouchableOpacity
             onPress={() => props.setScreen('login')}
         >
         <View
-            style={styles.noteContainer}
+            style={{ ... styles.noteContainer, justifyContent: 'center', alignItems: 'center' }}
         >
             <Text
                 style={commonStyles.note}
@@ -116,7 +124,7 @@ const Login = (props) => {
             </Text>
         </View>
         </TouchableOpacity>
-        </>
+        </View>
     )
 }
 
